@@ -224,7 +224,7 @@ Alice, Bob, and Trudy are fictional **** often used in cryptography to illustrat
 ```
 "security" has passed through, but "characters" was replaced with ****
 
-# замечания к реалзиации требований
+# замечания к реализации требований
 > Для каждого пользователя создайте отдельный список заблокированных пользователей. Список должен храниться на диске.
 
 Список заблокированных пользователей - тело сообщения в топике blocked_users.
