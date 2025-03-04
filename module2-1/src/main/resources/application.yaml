@@ -1,0 +1,14 @@
+spring:
+  application.name: module2_1
+  output.ansi.enabled: ALWAYS
+
+service:
+  boostrapServersConfig: localhost:9094
+  inputMessageTopic: messages
+  outputMessageTopic: filtered_messages
+  blockedUsersTopic: blocked_users
+  blockedWordsTopic: blocked_words
+
+logging.level:
+  root: WARN
+  com.example.module2: INFO
