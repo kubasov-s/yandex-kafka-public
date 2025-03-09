@@ -8,6 +8,8 @@ service:
   outputMessageTopic: filtered_messages
   blockedUsersTopic: blocked_users
   blockedWordsTopic: blocked_words
+  # текст, заменяющий цензурированные слова
+  censoredText: "****"
 
 logging.level:
   root: WARN

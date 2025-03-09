@@ -46,7 +46,8 @@ public class MainService {
         * */
         KTable<String, UserSet> blockedUsersTable = builder.table(
             serviceProperties.getBlockedUsersTopic(),
-            Consumed.with(Serdes.String(), userSetSerdes)
+            Consumed.with(Serdes.String(), userSetSerdes),
+            Materialized.as(Const.BLOCKED_USERS_STORE)
         );
 
         /*
@@ -75,7 +76,7 @@ public class MainService {
             .leftJoin(blockedUsersTable, (toUser, message, blockedUserSet) -> {
                 if (blockedUserSet != null
                     && blockedUserSet.users().contains(message.getFromUser())) {
-                    log.info("удалено сообщение: ({}, {})", toUser, message);
+                    log.info("message removed: ({}, {})", toUser, message);
                     return null;
                 }
                 return message;
@@ -83,7 +84,7 @@ public class MainService {
             .filter((key, message) -> message != null)
             // удаленные сообщения не доходят до этого места
             // обработка текста сообщения
-            .processValues(CensorshipProcessor::new)
+            .processValues(() -> new CensorshipProcessor(serviceProperties))
             // логируем обработанное сообщение
             .peek((key, message) -> log.info("output: ({}, {})", key, message))
             // сохраняем результат в выходной топик

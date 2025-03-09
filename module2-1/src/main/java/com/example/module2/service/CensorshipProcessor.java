@@ -1,6 +1,7 @@
 package com.example.module2.service;
 
 import com.example.module2.config.Const;
+import com.example.module2.config.ServiceProperties;
 import com.example.module2.model.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.streams.processor.api.FixedKeyProcessor;
@@ -15,8 +16,13 @@ import java.util.regex.Pattern;
 @Slf4j
 class CensorshipProcessor implements FixedKeyProcessor<String, Message, Message> {
     private static final Pattern wordPattern = Pattern.compile("\\w+");
+    private final ServiceProperties serviceProperties;
     private KeyValueStore<String, String> blockedWordsStateStore;
     private FixedKeyProcessorContext<String, Message> context;
+
+    public CensorshipProcessor(ServiceProperties serviceProperties) {
+        this.serviceProperties = serviceProperties;
+    }
 
     @Override
     public void init(FixedKeyProcessorContext<String, Message> context) {
@@ -33,7 +39,7 @@ class CensorshipProcessor implements FixedKeyProcessor<String, Message, Message>
             var word = m.group(0);
             // если слово в списке заблокированных, возвращаем замещающий текст
             if (blockedWordsStateStore.get(word) != null) {
-                return Const.CENSORED_TEXT;
+                return serviceProperties.getCensoredText();
             }
             // иначе возврщаемся исходное слово
             return word;

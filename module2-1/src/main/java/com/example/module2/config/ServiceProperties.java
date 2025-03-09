@@ -15,4 +15,5 @@ public class ServiceProperties {
     private String outputMessageTopic;
     private String blockedUsersTopic;
     private String blockedWordsTopic;
+    private String censoredText;
 }
