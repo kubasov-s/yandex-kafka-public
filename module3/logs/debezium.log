@@ -1,0 +1,89 @@
+[2025-03-20 16:27:12,805] INFO Using up-to-date JsonConverter implementation (io.debezium.converters.CloudEventsConverter)
+[2025-03-20 16:28:30,824] WARN The deleted record handling configs "drop.tombstones" and "delete.handling.mode" have been deprecated, please use "delete.tombstone.handling.mode" instead. (io.debezium.transforms.AbstractExtractNewRecordState)
+[2025-03-20 16:28:31,119] INFO Starting PostgresConnectorTask with configuration:
+   connector.class = io.debezium.connector.postgresql.PostgresConnector
+   database.user = postgres-user
+   database.dbname = customers
+   transforms.unwrap.delete.handling.mode = rewrite
+   topic.creation.default.partitions = -1
+   transforms = unwrap
+   database.server.name = customers
+   database.port = 5432
+   table.whitelist = public.customers
+   topic.creation.enable = true
+   topic.prefix = customers
+   task.class = io.debezium.connector.postgresql.PostgresConnectorTask
+   database.hostname = postgres
+   database.password = ********
+   transforms.unwrap.drop.tombstones = false
+   topic.creation.default.replication.factor = -1
+   name = pg-connector
+   transforms.unwrap.type = io.debezium.transforms.ExtractNewRecordState
+   skipped.operations = none
+ (io.debezium.connector.common.BaseSourceTask)
+[2025-03-20 16:28:31,148] INFO Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker (io.debezium.config.CommonConnectorConfig)
+[2025-03-20 16:28:31,252] INFO Loading the custom topic naming strategy plugin: io.debezium.schema.SchemaTopicNamingStrategy (io.debezium.config.CommonConnectorConfig)
+[2025-03-20 16:28:31,826] INFO Connection gracefully closed (io.debezium.jdbc.JdbcConnection)
+[2025-03-20 16:28:32,132] WARN Type [oid:13529, name:_pg_user_mappings] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,137] WARN Type [oid:13203, name:cardinal_number] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,137] WARN Type [oid:13206, name:character_data] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,137] WARN Type [oid:13208, name:sql_identifier] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,137] WARN Type [oid:13214, name:time_stamp] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,138] WARN Type [oid:13216, name:yes_or_no] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,314] INFO Found previous partition offset PostgresPartition [sourcePartition={server=customers}]: {lsn=27249760, txId=734, ts_usec=1742485304225912} (io.debezium.connector.common.BaseSourceTask)
+[2025-03-20 16:28:32,413] WARN Type [oid:13529, name:_pg_user_mappings] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,413] WARN Type [oid:13203, name:cardinal_number] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,414] WARN Type [oid:13206, name:character_data] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,414] WARN Type [oid:13208, name:sql_identifier] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,414] WARN Type [oid:13214, name:time_stamp] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,414] WARN Type [oid:13216, name:yes_or_no] is already mapped (io.debezium.connector.postgresql.TypeRegistry)
+[2025-03-20 16:28:32,502] INFO Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/19FCC60}, catalogXmin=734] (io.debezium.connector.postgresql.connection.PostgresConnection)
+[2025-03-20 16:28:32,555] INFO Found previous offset PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='customers'db='customers', lsn=LSN{0/19FCC60}, txId=734, timestamp=2025-03-20T15:41:44.225912Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=true, lastCompletelyProcessedLsn=null, lastCommitLsn=null, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]] (io.debezium.connector.postgresql.PostgresConnectorTask)
+[2025-03-20 16:28:32,596] INFO user 'postgres-user' connected to database 'customers' on PostgreSQL 16.4 (Debian 16.4-1.pgdg110+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit with roles:
+	role 'pg_read_all_settings' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_database_owner' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_stat_scan_tables' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_checkpoint' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_write_server_files' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_use_reserved_connections' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'postgres-user' [superuser: true, replication: true, inherit: true, create role: true, create db: true, can log in: true]
+	role 'pg_read_all_data' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_write_all_data' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_monitor' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_server_files' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_create_subscription' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_execute_server_program' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_all_stats' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_signal_backend' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false] (io.debezium.connector.postgresql.PostgresConnectorTask)
+[2025-03-20 16:28:32,599] INFO Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/19FCC60}, catalogXmin=734] (io.debezium.connector.postgresql.connection.PostgresConnection)
+[2025-03-20 16:28:32,694] INFO Requested thread factory for component PostgresConnector, id = customers named = SignalProcessor (io.debezium.util.Threads)
+[2025-03-20 16:28:32,729] INFO Requested thread factory for component PostgresConnector, id = customers named = change-event-source-coordinator (io.debezium.util.Threads)
+[2025-03-20 16:28:32,730] INFO Requested thread factory for component PostgresConnector, id = customers named = blocking-snapshot (io.debezium.util.Threads)
+[2025-03-20 16:28:32,748] INFO Creating thread debezium-postgresconnector-customers-change-event-source-coordinator (io.debezium.util.Threads)
+[2025-03-20 16:28:32,786] INFO Metrics registered (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 16:28:32,789] INFO Context created (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 16:28:32,814] INFO A previous offset indicating a completed snapshot has been found. (io.debezium.connector.postgresql.PostgresSnapshotChangeEventSource)
+[2025-03-20 16:28:32,815] INFO According to the connector configuration no snapshot will be executed (io.debezium.connector.postgresql.PostgresSnapshotChangeEventSource)
+[2025-03-20 16:28:32,823] INFO Snapshot ended with SnapshotResult [status=SKIPPED, offset=PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='customers'db='customers', lsn=LSN{0/19FCC60}, txId=734, timestamp=2025-03-20T15:41:44.225912Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=true, lastCompletelyProcessedLsn=null, lastCommitLsn=null, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]]] (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 16:28:32,829] INFO Connected metrics set to 'true' (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 16:28:32,994] INFO REPLICA IDENTITY for 'public.users' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns (io.debezium.connector.postgresql.PostgresSchema)
+[2025-03-20 16:28:33,026] INFO SignalProcessor started. Scheduling it every 5000ms (io.debezium.pipeline.signal.SignalProcessor)
+[2025-03-20 16:28:33,028] INFO Creating thread debezium-postgresconnector-customers-SignalProcessor (io.debezium.util.Threads)
+[2025-03-20 16:28:33,028] INFO Starting streaming (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 16:28:33,029] INFO Retrieved latest position from stored offset 'LSN{0/19FCC60}' (io.debezium.connector.postgresql.PostgresStreamingChangeEventSource)
+[2025-03-20 16:28:33,030] INFO Looking for WAL restart position for last commit LSN 'null' and last change LSN 'LSN{0/19FCC60}' (io.debezium.connector.postgresql.connection.WalPositionLocator)
+[2025-03-20 16:28:33,061] INFO Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/19FCC60}, catalogXmin=734] (io.debezium.connector.postgresql.connection.PostgresConnection)
+[2025-03-20 16:28:33,067] INFO Connection gracefully closed (io.debezium.jdbc.JdbcConnection)
+[2025-03-20 16:28:33,411] INFO Requested thread factory for component PostgresConnector, id = customers named = keep-alive (io.debezium.util.Threads)
+[2025-03-20 16:28:33,412] INFO Creating thread debezium-postgresconnector-customers-keep-alive (io.debezium.util.Threads)
+[2025-03-20 16:28:33,489] INFO REPLICA IDENTITY for 'public.users' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns (io.debezium.connector.postgresql.PostgresSchema)
+[2025-03-20 16:28:33,491] INFO Processing messages (io.debezium.connector.postgresql.PostgresStreamingChangeEventSource)
+[2025-03-20 17:46:25,014] INFO 1 records sent during previous 01:17:55.316, last recorded offset of {server=customers} partition is {lsn_proc=27250088, messageType=INSERT, lsn=27250088, txId=735, ts_usec=1742492784329296} (io.debezium.connector.common.BaseSourceTask)
+[2025-03-20 17:51:33,883] INFO Stopping down connector (io.debezium.connector.common.BaseSourceTask)
+[2025-03-20 17:51:33,958] INFO Connection gracefully closed (io.debezium.jdbc.JdbcConnection)
+[2025-03-20 17:51:33,958] INFO Finished streaming (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 17:51:33,958] INFO Connected metrics set to 'false' (io.debezium.pipeline.ChangeEventSourceCoordinator)
+[2025-03-20 17:51:33,961] INFO SignalProcessor stopped (io.debezium.pipeline.signal.SignalProcessor)
+[2025-03-20 17:51:33,962] INFO Debezium ServiceRegistry stopped. (io.debezium.service.DefaultServiceRegistry)
+[2025-03-20 17:51:33,964] INFO Connection gracefully closed (io.debezium.jdbc.JdbcConnection)
+[2025-03-20 17:51:33,968] INFO Connection gracefully closed (io.debezium.jdbc.JdbcConnection)
