@@ -1,0 +1,165 @@
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.4
+    container_name: zookeeper
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - confluent
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_INIT_LIMIT: 5
+      ZOOKEEPER_SYNC_LIMIT: 2
+ 
+ 
+  kafka-1:
+    image: confluentinc/cp-kafka:7.4.4
+    container_name: kafka-1
+    hostname: kafka-1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    networks:
+      - confluent
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_DELETE_TOPIC_ENABLE: true
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LISTENERS: PLAINTEXT://:9092,PLAINTEXT_HOST://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://:9092,PLAINTEXT_HOST://kafka.local:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    volumes:
+       - ./config:/share
+
+ 
+  hadoop-namenode:
+    image: apache/hadoop:3.4.1
+    container_name: hadoop-namenode
+    hostname: hadoop-namenode
+    restart: always
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"   # Ограничение использования CPU
+          memory: "2g"  # Ограничение использования RAM
+    shm_size: 10G
+    ports:
+      - 9870:9870  # HTTP-порт для Web UI HDFS NameNode
+      - 9000:9000  # RPC порт для запросов к NameNode
+    environment:
+      ENSURE_NAMENODE_DIR: /opt/hdfs/namenode
+    volumes:
+      - ./config/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml
+      - ./config/hdfs-site-namenode.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml
+      - ./config/log4j.properties:/opt/hadoop/etc/hadoop/log4j.properties
+    command: ["hdfs", "namenode"]
+ 
+ 
+  hadoop-datanode-1:
+    image: apache/hadoop:3.4.1
+    container_name: hadoop-datanode-1
+    hostname: hadoop-datanode-1
+    restart: always
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"   # Ограничение использования CPU
+          memory: "2g"  # Ограничение использования RAM
+    shm_size: 10G
+    depends_on:
+      - hadoop-namenode
+    ports:
+      - "9864:9864"  # HTTP-порт для Web UI DataNode №1
+      - "9970:9970"  # RPC порт для запросов от NameNode
+    environment:
+      ENSURE_NAMENODE_DIR: /opt/hdfs/datanode
+    volumes:
+      - ./config/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml
+      - ./config/hdfs-site-datanode-1.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml
+    command: ["hdfs", "datanode"]
+
+ 
+  hadoop-datanode-2:
+    image: apache/hadoop:3.4.1
+    container_name: hadoop-datanode-2
+    hostname: hadoop-datanode-2
+    restart: always
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"   # Ограничение использования CPU
+          memory: "2g"  # Ограничение использования RAM
+    shm_size: 10G
+    depends_on:
+      - hadoop-namenode
+    ports:
+      - "9865:9865"  # HTTP-порт для Web UI DataNode №2
+      - "9971:9971"  # RPC порт для запросов от NameNode
+    environment:
+      ENSURE_NAMENODE_DIR: /opt/hdfs/datanode
+    volumes:
+      - ./config/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml
+      - ./config/hdfs-site-datanode-2.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml
+    command: ["hdfs", "datanode"]
+ 
+ 
+  hadoop-datanode-3:
+    image: apache/hadoop:3.4.1
+    container_name: hadoop-datanode-3
+    hostname: hadoop-datanode-3
+    restart: always
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"   # Ограничение использования CPU
+          memory: "2g"  # Ограничение использования RAM
+    shm_size: 10G
+    depends_on:
+      - hadoop-namenode
+    ports:
+      - "9866:9866"  # HTTP-порт для Web UI DataNode №3
+      - "9972:9972"  # RPC порт для запросов от NameNode
+    environment:
+      ENSURE_NAMENODE_DIR: /opt/hdfs/datanode
+    volumes:
+      - ./config/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml
+      - ./config/hdfs-site-datanode-3.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml
+    command: ["hdfs", "datanode"]
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:v0.7.0
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS: kafka-1:9092
+      KAFKA_CLUSTERS_1_NAME: yandex-cloud
+      KAFKA_CLUSTERS_1_BOOTSTRAP_SERVERS: vm1.mdb.yandexcloud.net:9091
+      KAFKA_CLUSTERS_1_PROPERTIES_SECURITY_PROTOCOL: SASL_SSL
+      KAFKA_CLUSTERS_1_PROPERTIES_SASL_MECHANISM: PLAIN
+      KAFKA_CLUSTERS_1_PROPERTIES_SASL_JAAS_CONFIG: 'org.apache.kafka.common.security.plain.PlainLoginModule required username="producer" password="producer-secret";'
+      KAFKA_CLUSTERS_1_SSL_TRUSTSTORELOCATION: /share/CA.jks
+      KAFKA_CLUSTERS_1_SSL_TRUSTSTOREPASSWORD: password
+      KAFKA_CLUSTERS_1_SCHEMAREGISTRY: https://vm1.mdb.yandexcloud.net
+      KAFKA_CLUSTERS_1_SCHEMAREGISTRYAUTH_USERNAME: producer
+      KAFKA_CLUSTERS_1_SCHEMAREGISTRYAUTH_PASSWORD: producer-secret
+    volumes:
+      - ./config:/share
+    networks:
+      - confluent
+
+networks:
+  confluent:

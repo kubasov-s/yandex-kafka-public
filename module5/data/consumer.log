@@ -1,0 +1,255 @@
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.2)
+
+2025-04-13T09:11:06.670+03:00  INFO 26328 --- [consumer] [           main] org.example.KafkaConsumerApp             : Starting KafkaConsumerApp using Java 17.0.7 with PID 26328 (reducted\yandex-cloud2\consumer\target\classes started by kubasov in reducted)
+2025-04-13T09:11:06.673+03:00  INFO 26328 --- [consumer] [           main] org.example.KafkaConsumerApp             : No active profile set, falling back to 1 default profile: "default"
+2025-04-13T09:11:07.515+03:00  INFO 26328 --- [consumer] [           main] org.example.KafkaConsumerApp             : Started KafkaConsumerApp in 1.295 seconds (process running for 1.862)
+2025-04-13T09:11:07.714+03:00  INFO 26328 --- [consumer] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [vm1.mdb.yandexcloud.net:9091]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-1
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = [hidden]
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = PLAIN
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = SASL_SSL
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = reducted\CA.jks
+	ssl.truststore.password = [hidden]
+	ssl.truststore.type = JKS
+	value.deserializer = class io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
+
+2025-04-13T09:11:07.771+03:00  INFO 26328 --- [consumer] [           main] .k.s.j.KafkaJsonSchemaDeserializerConfig : KafkaJsonSchemaDeserializerConfig values: 
+	auto.register.schemas = true
+	basic.auth.credentials.source = SASL_INHERIT
+	basic.auth.user.info = [hidden]
+	bearer.auth.cache.expiry.buffer.seconds = 300
+	bearer.auth.client.id = null
+	bearer.auth.client.secret = null
+	bearer.auth.credentials.source = STATIC_TOKEN
+	bearer.auth.custom.provider.class = null
+	bearer.auth.identity.pool.id = null
+	bearer.auth.issuer.endpoint.url = null
+	bearer.auth.logical.cluster = null
+	bearer.auth.scope = null
+	bearer.auth.scope.claim.name = scope
+	bearer.auth.sub.claim.name = sub
+	bearer.auth.token = [hidden]
+	context.name.strategy = class io.confluent.kafka.serializers.context.NullContextNameStrategy
+	http.connect.timeout.ms = 60000
+	http.read.timeout.ms = 60000
+	id.compatibility.strict = true
+	json.fail.invalid.schema = false
+	json.fail.unknown.properties = true
+	json.key.type = class java.lang.Object
+	json.value.type = class java.lang.Object
+	key.subject.name.strategy = class io.confluent.kafka.serializers.subject.TopicNameStrategy
+	latest.cache.size = 1000
+	latest.cache.ttl.sec = -1
+	latest.compatibility.strict = true
+	max.schemas.per.subject = 1000
+	normalize.schemas = false
+	proxy.host = 
+	proxy.port = -1
+	rule.actions = []
+	rule.executors = []
+	rule.service.loader.enable = true
+	schema.format = null
+	schema.reflection = false
+	schema.registry.basic.auth.user.info = [hidden]
+	schema.registry.ssl.cipher.suites = null
+	schema.registry.ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	schema.registry.ssl.endpoint.identification.algorithm = https
+	schema.registry.ssl.engine.factory.class = null
+	schema.registry.ssl.key.password = null
+	schema.registry.ssl.keymanager.algorithm = SunX509
+	schema.registry.ssl.keystore.certificate.chain = null
+	schema.registry.ssl.keystore.key = null
+	schema.registry.ssl.keystore.location = null
+	schema.registry.ssl.keystore.password = null
+	schema.registry.ssl.keystore.type = JKS
+	schema.registry.ssl.protocol = TLSv1.3
+	schema.registry.ssl.provider = null
+	schema.registry.ssl.secure.random.implementation = null
+	schema.registry.ssl.trustmanager.algorithm = PKIX
+	schema.registry.ssl.truststore.certificates = null
+	schema.registry.ssl.truststore.location = reducted\CA.jks
+	schema.registry.ssl.truststore.password = [hidden]
+	schema.registry.ssl.truststore.type = JKS
+	schema.registry.url = [https://vm1.mdb.yandexcloud.net]
+	type.property = javaType
+	use.latest.version = false
+	use.latest.with.metadata = null
+	use.schema.id = -1
+	value.subject.name.strategy = class io.confluent.kafka.serializers.subject.TopicNameStrategy
+
+2025-04-13T09:11:08.039+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.s.authenticator.AbstractLogin    : Successfully logged in.
+2025-04-13T09:11:08.157+03:00  INFO 26328 --- [consumer] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.5.0
+2025-04-13T09:11:08.159+03:00  INFO 26328 --- [consumer] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c97b88d5db4de28d
+2025-04-13T09:11:08.159+03:00  INFO 26328 --- [consumer] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1744524668156
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+0 [main] DEBUG org.apache.htrace.core.Tracer  - sampler.classes = ; loaded no samplers
+16 [main] DEBUG org.apache.htrace.core.Tracer  - span.receiver.classes = ; loaded no span receivers
+2025-04-13T09:11:08.913+03:00  INFO 26328 --- [consumer] [           main] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group-1-1, groupId=group-1] Subscribed to topic(s): topic-1
+2025-04-13T09:11:09.352+03:00  INFO 26328 --- [consumer] [           main] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group-1-1, groupId=group-1] Cluster ID: tm513O4gQ1G01j-RimyksA
+2025-04-13T09:11:09.353+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Discovered group coordinator rc1a-bm00vioou1trn3jr.mdb.yandexcloud.net:9091 (id: 2147483646 rack: null)
+2025-04-13T09:11:09.357+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+2025-04-13T09:11:09.467+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: need to re-join with the given member-id: consumer-group-1-1-600fc4b6-7060-4266-93e4-c0a3ea99b429
+2025-04-13T09:11:09.467+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-04-13T09:11:09.467+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+2025-04-13T09:11:10.507+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=1, memberId='consumer-group-1-1-600fc4b6-7060-4266-93e4-c0a3ea99b429', protocol='range'}
+2025-04-13T09:11:10.516+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Finished assignment for group at generation 1: {consumer-group-1-1-600fc4b6-7060-4266-93e4-c0a3ea99b429=Assignment(partitions=[topic-1-0, topic-1-1, topic-1-2])}
+2025-04-13T09:11:10.591+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=1, memberId='consumer-group-1-1-600fc4b6-7060-4266-93e4-c0a3ea99b429', protocol='range'}
+2025-04-13T09:11:10.592+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[topic-1-0, topic-1-1, topic-1-2])
+2025-04-13T09:11:10.600+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: topic-1-0, topic-1-1, topic-1-2
+2025-04-13T09:11:10.629+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition topic-1-2
+2025-04-13T09:11:10.629+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition topic-1-1
+2025-04-13T09:11:10.629+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition topic-1-0
+2025-04-13T09:11:10.746+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition topic-1-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[vm1.mdb.yandexcloud.net:9091 (id: 2 rack: ru-central1-a)], epoch=0}}.
+2025-04-13T09:11:10.755+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition topic-1-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[rc1a-bm00vioou1trn3jr.mdb.yandexcloud.net:9091 (id: 1 rack: ru-central1-a)], epoch=0}}.
+2025-04-13T09:11:10.764+03:00  INFO 26328 --- [consumer] [           main] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition topic-1-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[rc1a-qlg45hk52e0kra5a.mdb.yandexcloud.net:9091 (id: 3 rack: ru-central1-a)], epoch=0}}.
+2025-04-13T09:11:10.998+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:26.640965900}
+2025-04-13T09:11:12.702+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_a7e8ceae-34a7-4268-9cc6-fb7cb69e0856
+2025-04-13T09:11:12.702+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:31.193265}
+2025-04-13T09:11:12.768+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_77e1cf73-6795-4781-9592-c5d15c41c976
+2025-04-13T09:11:12.768+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:34.214908100}
+2025-04-13T09:11:12.796+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_2c118040-1dd7-4e4e-bb73-091d98f7e261
+2025-04-13T09:11:12.796+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:37.239644800}
+2025-04-13T09:11:12.842+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_bd148af6-6479-445f-91b4-86d1639b2a6f
+2025-04-13T09:11:12.842+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:40.260371300}
+2025-04-13T09:11:12.876+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_15d56695-89df-48ee-88a1-984f5f91e175
+2025-04-13T09:11:12.876+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:43.279876300}
+2025-04-13T09:11:12.916+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_176302e4-3713-411f-894d-2829760149a3
+2025-04-13T09:11:12.916+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:46.306120300}
+2025-04-13T09:11:13.380+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_f07b192b-0b87-4f87-8ced-1a82d9790c4b
+2025-04-13T09:11:13.380+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:49.325183500}
+2025-04-13T09:11:13.423+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_89545f63-e67e-440b-9231-8ee237b4e774
+2025-04-13T09:11:13.424+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:52.345680700}
+2025-04-13T09:11:13.459+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_ef0f3dc9-5540-4ac7-bd78-88757638d04e
+2025-04-13T09:11:13.459+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:55.364643500}
+2025-04-13T09:11:13.507+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_a2aa9d69-33db-45c5-a6fb-ead340156c40
+2025-04-13T09:11:13.507+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:44:58.382705600}
+2025-04-13T09:11:13.577+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_fe873d73-32e3-4d10-834c-5f951272070f
+2025-04-13T09:11:13.578+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:45:01.406016400}
+2025-04-13T09:11:13.622+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_1db1bcf4-3aa3-4c85-aeba-a8fa5cf5cb5f
+2025-04-13T09:11:13.622+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:45:04.426268500}
+2025-04-13T09:11:13.664+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_d585ead6-fedd-455a-9d69-6c996ad6f6b2
+2025-04-13T09:11:13.664+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T08:45:07.446449700}
+2025-04-13T09:11:13.703+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_81a94a95-efd3-48c2-9525-cb64afdac984
+2025-04-13T09:11:13.704+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:10:57.718351400}
+2025-04-13T09:11:13.744+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_3078c3c0-8bb2-4361-abc1-c67ee777f9f8
+2025-04-13T09:11:13.744+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:01.619185200}
+2025-04-13T09:11:13.785+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_300e36b0-9092-4823-86f0-08daee5cc5b8
+2025-04-13T09:11:13.785+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:04.637814}
+2025-04-13T09:11:13.822+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_efc296cb-bb6f-4f65-839c-78ec52e6ae34
+2025-04-13T09:11:13.823+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:07.655348100}
+2025-04-13T09:11:13.871+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_76f5df34-bca2-45f0-817f-48cb492ffcc6
+2025-04-13T09:11:13.871+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:10.673919300}
+2025-04-13T09:11:13.947+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_71dfdfb9-89c2-4b6b-b8f3-073030a3aed8
+2025-04-13T09:11:13.962+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:13.693349}
+2025-04-13T09:11:14.004+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_7d0be6fa-ec0a-439b-9a96-e74f74afcca4
+2025-04-13T09:11:16.731+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:16.711444100}
+2025-04-13T09:11:17.195+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_9ed3d4e2-c8f5-4ae7-bb31-f02cee72a954
+2025-04-13T09:11:19.752+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:19.731991200}
+2025-04-13T09:11:19.795+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_4cd5abad-4374-40dc-9077-8f28150c1c85
+2025-04-13T09:11:22.769+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:22.752883800}
+2025-04-13T09:11:22.834+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_1022cc44-f5bf-43c8-bbfe-7c59838e664a
+2025-04-13T09:11:25.787+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:25.770409500}
+2025-04-13T09:11:25.827+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_f19c279b-fde2-467f-b4d9-5dae632bff0b
+2025-04-13T09:11:28.808+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:28.787896400}
+2025-04-13T09:11:28.899+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_9065f804-f3e6-495d-b101-9747eed2dbcf
+2025-04-13T09:11:31.827+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:31.808822300}
+2025-04-13T09:11:31.889+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_2c644a19-aacb-490e-9354-8c815f84adbe
+2025-04-13T09:11:34.849+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:34.829504400}
+2025-04-13T09:11:34.896+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_53875f9b-c89f-4c35-971c-668b0150de66
+2025-04-13T09:11:37.870+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:37.849466400}
+2025-04-13T09:11:37.942+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_01c1ddef-2f8a-4679-8b84-847e566b292a
+2025-04-13T09:11:40.891+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:40.871721400}
+2025-04-13T09:11:40.941+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_0c759f87-39b5-4063-a1eb-317edf93a3f1
+2025-04-13T09:11:43.910+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : received message: {name=Yet another user, datetime=2025-04-13T09:11:43.892446100}
+2025-04-13T09:11:43.976+03:00  INFO 26328 --- [consumer] [           main] org.example.service.ConsumerService      : message saved to hdfs: /data/message_ac7d5ff1-215b-40ff-a6d4-74cec3c51ec2

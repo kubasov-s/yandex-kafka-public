@@ -1,0 +1,11 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  application.name: producer
+
+service:
+  bootstrap-servers: vm1.mdb.yandexcloud.net:9091
+  schema-registry-url: https://vm1.mdb.yandexcloud.net
+  topic: topic-1
+  ssl-truststore-location: CA.jks
+  ssl-truststore-password: password
+  sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="producer" password="producer-secret";

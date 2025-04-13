@@ -1,0 +1,75 @@
+2025-04-13 06:37:10 INFO  audit:8947 - allowed=true	ugi=hadoop (auth:SIMPLE)	ip=/192.168.56.1	cmd=create	src=/data/message_2de40cfe-a365-49f2-9b28-6697c2eca224	dst=null	perm=hadoop:supergroup:rw-r--r--	proto=rpc
+2025-04-13 06:37:10 DEBUG NetworkTopology:542 - Choosing random from 3 available nodes on node /default-rack, scope=/default-rack, excludedScope=null, excludeNodes=[]. numOfDatanodes=3.
+2025-04-13 06:37:10 DEBUG NetworkTopology:552 - chooseRandom returning 172.19.0.3:9971
+2025-04-13 06:37:10 DEBUG NetworkTopology:525 - Failed to find datanode (scope="" excludedScope="/default-rack"). numOfDatanodes=0
+2025-04-13 06:37:10 DEBUG NetworkTopology:125 - No node to choose.
+2025-04-13 06:37:10 DEBUG BlockPlacementPolicy:917 - [
+  Datanode None is not chosen since required storage types are unavailable  for storage type DISK.
+2025-04-13 06:37:10 INFO  BlockPlacementPolicy:925 - Not enough replicas was chosen. Reason: {NO_REQUIRED_STORAGE_TYPE=1}
+2025-04-13 06:37:10 DEBUG BlockPlacementPolicy:793 - Failed to choose remote rack (location = ~/default-rack), fallback to local rack
+org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicy$NotEnoughReplicasException: 
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseRandom(BlockPlacementPolicyDefault.java:927)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseRemoteRack(BlockPlacementPolicyDefault.java:789)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTargetInOrder(BlockPlacementPolicyDefault.java:569)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:490)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:362)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:182)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:207)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2465)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:293)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:3075)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:932)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:603)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:621)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:589)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:573)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1227)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1246)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1169)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:3198)
+2025-04-13 06:37:10 DEBUG NetworkTopology:542 - Choosing random from 2 available nodes on node /default-rack, scope=/default-rack, excludedScope=null, excludeNodes=[172.19.0.3:9971]. numOfDatanodes=3.
+2025-04-13 06:37:10 DEBUG NetworkTopology:604 - nthValidToReturn is 0
+2025-04-13 06:37:10 DEBUG NetworkTopology:609 - Chosen node 172.19.0.4:9970 from first random
+2025-04-13 06:37:10 DEBUG NetworkTopology:552 - chooseRandom returning 172.19.0.4:9970
+2025-04-13 06:37:10 DEBUG NetworkTopology:525 - Failed to find datanode (scope="" excludedScope="/default-rack"). numOfDatanodes=0
+2025-04-13 06:37:10 DEBUG NetworkTopology:125 - No node to choose.
+2025-04-13 06:37:10 DEBUG BlockPlacementPolicy:917 - [
+  Datanode None is not chosen since required storage types are unavailable  for storage type DISK.
+2025-04-13 06:37:10 INFO  BlockPlacementPolicy:925 - Not enough replicas was chosen. Reason: {NO_REQUIRED_STORAGE_TYPE=1}
+2025-04-13 06:37:10 DEBUG BlockPlacementPolicy:793 - Failed to choose remote rack (location = ~/default-rack), fallback to local rack
+org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicy$NotEnoughReplicasException: 
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseRandom(BlockPlacementPolicyDefault.java:927)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseRemoteRack(BlockPlacementPolicyDefault.java:789)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTargetInOrder(BlockPlacementPolicyDefault.java:578)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:490)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:362)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:182)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyDefault.chooseTarget(BlockPlacementPolicyDefault.java:207)
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2465)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:293)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:3075)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:932)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:603)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:621)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:589)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine2$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine2.java:573)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1227)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1246)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1169)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:3198)
+2025-04-13 06:37:10 DEBUG NetworkTopology:542 - Choosing random from 1 available nodes on node /default-rack, scope=/default-rack, excludedScope=null, excludeNodes=[172.19.0.3:9971, 172.19.0.4:9970]. numOfDatanodes=3.
+2025-04-13 06:37:10 DEBUG NetworkTopology:604 - nthValidToReturn is 0
+2025-04-13 06:37:10 DEBUG NetworkTopology:552 - chooseRandom returning 172.19.0.2:9972
+2025-04-13 06:37:10 INFO  StateChange:801 - BLOCK* allocate blk_1073741859_1035, replicas=172.19.0.3:9971, 172.19.0.4:9970, 172.19.0.2:9972 for /data/message_2de40cfe-a365-49f2-9b28-6697c2eca224
+2025-04-13 06:37:11 INFO  BlockStateChange:3777 - BLOCK* addStoredBlock: 172.19.0.2:9972 is added to blk_1073741859_1035 (size=72)
+2025-04-13 06:37:11 INFO  BlockStateChange:3777 - BLOCK* addStoredBlock: 172.19.0.4:9970 is added to blk_1073741859_1035 (size=72)
+2025-04-13 06:37:11 INFO  BlockStateChange:3777 - BLOCK* addStoredBlock: 172.19.0.3:9971 is added to blk_1073741859_1035 (size=72)
+2025-04-13 06:37:11 INFO  StateChange:3239 - DIR* completeFile: /data/message_2de40cfe-a365-49f2-9b28-6697c2eca224 is closed by DFSClient_NONMAPREDUCE_1879161365_1
