@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 public class ServiceProperties {
-    private String boostrapServersConfig;
+    private String bootstrapServersConfig;
     private String inputMessageTopic;
     private String outputMessageTopic;
     private String blockedUsersTopic;

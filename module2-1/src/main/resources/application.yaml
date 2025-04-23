@@ -3,7 +3,7 @@ spring:
   output.ansi.enabled: ALWAYS
 
 service:
-  boostrapServersConfig: localhost:9094
+  bootstrapServersConfig: localhost:9094
   inputMessageTopic: messages
   outputMessageTopic: filtered_messages
   blockedUsersTopic: blocked_users

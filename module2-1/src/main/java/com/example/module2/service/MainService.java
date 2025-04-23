@@ -51,7 +51,7 @@ public class MainService {
         );
 
         /*
-        таблицыа запрещенныех слов
+        таблица запрещенных слов
         ключ - запрещенное слово
         значение:
             - непустая строка - блокировка включена,
@@ -99,7 +99,7 @@ public class MainService {
     private Properties getProperties() {
         Properties properties = new Properties();
         properties.put(StreamsConfig.APPLICATION_ID_CONFIG, "module2-1");
-        properties.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, serviceProperties.getBoostrapServersConfig());
+        properties.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, serviceProperties.getBootstrapServersConfig());
         return properties;
     }
 
