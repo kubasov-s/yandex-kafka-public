@@ -1,0 +1,19 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  application.name: import-to-hadoop
+
+service:
+  bootstrap-servers: kafka.local:9096,kafka.local:9097,kafka.local:9098
+  schema-registry-url: http://kafka.local:8081
+  product-topic: public-product
+  request-topic: client-request
+  ssl-truststore-location: C:\module6\docker\kafka-certs\kafka.truststore.jks
+  ssl-truststore-password: password3
+  sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="hadoop_consumer" password="hadoop_consumer_secret";
+  group-id: app.import-to-hadoop
+  hdfs-uri: hdfs://kafka.local:9000
+  hdfs-user: hadoop
+
+logging.level.root: WARN
+logging.level.org.example.import_to.hadoop: INFO
+logging.charset.console: UTF-8

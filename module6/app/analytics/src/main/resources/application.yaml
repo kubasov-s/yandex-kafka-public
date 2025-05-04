@@ -1,0 +1,18 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  application.name: analytics
+
+service:
+  bootstrap-servers: kafka.local:9096,kafka.local:9097,kafka.local:9098
+  schema-registry-url: http://kafka.local:8081
+  topic: recommendation
+  ssl-truststore-location: C:\module6\docker\kafka-certs\kafka.truststore.jks
+  ssl-truststore-password: password3
+  sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="analytics_producer" password="analytics_producer_secret";
+  hdfs-uri: hdfs://kafka.local:9000
+  hdfs-user: hadoop
+  max-recommendations: 3
+
+logging.level.root: WARN
+logging.level.org.example.analytics: INFO
+logging.charset.console: UTF-8

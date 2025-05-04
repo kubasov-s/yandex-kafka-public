@@ -1,0 +1,28 @@
+{
+  "product_id": "51145485205",
+  "name": "Кеды PUMA",
+  "description": "Кеды PUMA Club II в бордовом цвете идеально подходят для создания модных образов.",
+  "price": {
+    "amount": 5048,
+    "currency": "RUB"
+  },
+  "category": "обувь",
+  "brand": "PUMA",
+  "stock": {
+    "available": 150,
+    "reserved": 20
+  },
+  "sku": "XYZ-12345",
+  "tags": ["кеды", "обувь"],
+  "images": [  ],
+  "specifications": {
+    "weight": "50g",
+    "dimensions": "42mm x 36mm x 10mm",
+    "battery_life": "24 hours",
+    "water_resistance": "IP68"
+  },
+  "created_at": "2023-10-01T12:00:00Z",
+  "updated_at": "2023-10-10T15:30:00Z",
+  "index": "products",
+  "store_id": "store_001"
+}

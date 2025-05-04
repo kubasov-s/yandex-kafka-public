@@ -1,0 +1,21 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  application.name: client
+
+service:
+  product-file: C:\module6\product.txt
+  master-bootstrap-servers: kafka.local:9093,kafka.local:9094,kafka.local:9095
+  slave-bootstrap-servers: kafka.local:9096,kafka.local:9097,kafka.local:9098
+  schema-registry-url: http://kafka.local:8081
+  recommendation-topic: recommendation
+  client-request-topic: client-request
+  ssl-truststore-location: C:\module6\docker\kafka-certs\kafka.truststore.jks
+  ssl-truststore-password: password3
+  master-sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="client" password="client_secret";
+  slave-sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="client" password="client_secret";
+  slave-group-id: app.client
+  wait-recommendation-ms: 6000
+
+logging.level.root: WARN
+logging.level.org.example.client: INFO
+logging.charset.console: UTF-8

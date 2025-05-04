@@ -1,0 +1,15 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  application.name: ban-product
+
+service:
+  bootstrap-servers: kafka.local:9093,kafka.local:9094,kafka.local:9095
+  schema-registry-url: http://kafka.local:8081
+  topic: banned-product
+  ssl-truststore-location: C:\module6\docker\kafka-certs\kafka.truststore.jks
+  ssl-truststore-password: password3
+  sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin-secret";
+
+logging.level.root: WARN
+logging.level.org.example.ban.product: INFO
+logging.charset.console: UTF-8

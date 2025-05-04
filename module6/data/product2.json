@@ -1,0 +1,28 @@
+{
+  "product_id": "524740537",
+  "name": "Фотоаппарат Fujifilm",
+  "description": "Новая версия самой популярной моментальной фотокамеры от Instax - современная улучшенная модель Instax MINI 12 в цвете BLUE. Формат кадра размера MINI (визитка) 5 х 9 см.",
+  "price": {
+    "amount": 8603,
+    "currency": "RUB"
+  },
+  "category": "Электроника",
+  "brand": "Fujifilm",
+  "stock": {
+    "available": 150,
+    "reserved": 20
+  },
+  "sku": "XYZ-12345",
+  "tags": ["фотокамеры", "гаджеты", "технологии"],
+  "images": [  ],
+  "specifications": {
+    "weight": "50g",
+    "dimensions": "42mm x 36mm x 10mm",
+    "battery_life": "24 hours",
+    "water_resistance": "IP68"
+  },
+  "created_at": "2023-10-01T12:00:00Z",
+  "updated_at": "2023-10-10T15:30:00Z",
+  "index": "products",
+  "store_id": "store_001"
+}

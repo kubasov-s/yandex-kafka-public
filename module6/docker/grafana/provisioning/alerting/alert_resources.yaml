@@ -1,0 +1,14 @@
+apiVersion: 1
+
+contactPoints:
+  - orgId: 1
+    name: grafana-alerting-email
+    receivers:
+      - uid: grafana-alerting-email_uid
+        type: email
+        settings:
+          addresses: nobody@yandex.ru
+          #message: '{{ template "custom_email.message" .}}'
+          singleEmail: false
+          #subject: '{{ template "custom_email.subject" .}}'
+        disableResolveMessage: false

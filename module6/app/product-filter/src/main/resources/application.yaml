@@ -1,0 +1,16 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  application.name: product-filter
+
+service:
+  application-id: app.product-filter
+  bootstrap-servers: kafka.local:9093,kafka.local:9094,kafka.local:9095
+  schema-registry-url: http://kafka.local:8081
+  input-topic: product
+  output-topic: public-product
+  banned-product-topic: banned-product
+  ssl-truststore-location: C:\module6\docker\kafka-certs\kafka.truststore.jks
+  ssl-truststore-password: password3
+  sasl-jaas-config: org.apache.kafka.common.security.plain.PlainLoginModule required username="product_filter" password="product_filter-secret";
+
+logging.charset.console: UTF-8
